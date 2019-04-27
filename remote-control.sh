@@ -1,10 +1,12 @@
 #!/bin/bash
+# Remote control for Sony Bravia
+# Author: Julio Cesar Mauro
 
+# CHANGE THIS
 TV="bravia.oruam.cloud"
 PSK="CHANGE IN LINES 66 and 74"
 
 # COMMANDS
-
 POWERON(){
     SYSTEM="system"
     data="{\"method\":\"setPowerStatus\",\"version\":\"1.0\",\"id\":1,\"params\":[{\"status\":true}]}"
@@ -89,15 +91,15 @@ show_menus() {
 	echo " SONY BRAVIA REMOTE CONTROL"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo "1.  POWER ON"
-    echo "2.  POWER OFF"
+        echo "2.  POWER OFF"
 	echo "3.  VOLUME UP"
 	echo "4.  VOLUME DOWN"
-    echo "5.  CHANNEL UP"
-    echo "6.  CHANNEL DOWN"
-    echo "7.  UNMUTE"
-    echo "8.  MUTE"
-    echo "9.  DIGITAL TV"
-    echo "10. MI BOX"
+        echo "5.  CHANNEL UP"
+        echo "6.  CHANNEL DOWN"
+        echo "7.  UNMUTE"
+        echo "8.  MUTE"
+        echo "9.  DIGITAL TV"
+        echo "10. MI BOX"
 }
 # read input from the keyboard and take a action
 # invoke the one() when the user select 1 from the menu option.
@@ -108,23 +110,22 @@ read_options(){
 	read -p "Enter choice: " choice
 	case $choice in
 		1) POWERON ;;
-        2) POWEROFF ;;
+        	2) POWEROFF ;;
 		3) VOLUME_UP ;;
 		4) VOLUME_DOWN ;;
-        5) CHANNEL_UP ;;
-        6) CHANNEL_DOWN ;;
-        7) UNMUTE ;;
-        8) MUTE ;;
-        9) DTV ;;
-        10) MI ;;
-        0) exit 0 ;;
+        	5) CHANNEL_UP ;;
+        	6) CHANNEL_DOWN ;;
+        	7) UNMUTE ;;
+        	8) MUTE ;;
+        	9) DTV ;;
+        	10) MI ;;
+        	0) exit 0 ;;
 		*) exit 0
 	esac
 }
 
 while true
 do
- 
 	show_menus
 	read_options
 done
